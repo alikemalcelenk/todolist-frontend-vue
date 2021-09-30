@@ -1,9 +1,8 @@
-$bg: blue;
+@import "variables.scss";
 
 * {
     margin: 0;
     border: 0;
     padding: 0;
     font: inherit;
-    background-color: $bg;
 }
