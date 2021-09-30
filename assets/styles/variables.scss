@@ -8,3 +8,9 @@
     --c-blue: rgb(84, 102, 226);
     --c-blue-10: rgba(84, 102, 226, 0.1);
 }
+
+%flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
