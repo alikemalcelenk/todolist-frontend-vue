@@ -44,5 +44,8 @@ export default {
   axios: {},
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {}
+  build: {},
+
+  // Storybook Configuration: https://storybook.nuxtjs.org/getting-started/installation
+  storybook: {}
 }
