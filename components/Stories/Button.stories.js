@@ -2,7 +2,9 @@ export default {
   title: 'Buttons'
 }
 
-export const NavigationButton = () => '<NavigationButton type="completed" />'
+export const NavigationCompleted = () => '<NavigationButton type="completed" />'
 
-export const NavigationButtontest = () =>
+export const NavigationIncompleted = () =>
   '<NavigationButton type="incompleted" selected />'
+
+export const Navigation = () => '<Navigation />'
