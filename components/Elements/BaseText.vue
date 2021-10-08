@@ -1,5 +1,5 @@
 <template>
-  <component :is="tag">
+  <component :is="tag" class="text">
     <slot />
   </component>
 </template>
@@ -14,3 +14,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.text {
+  color: $--c-text;
+}
+</style>

@@ -8,3 +8,5 @@ export const NavigationIncompleted = () =>
   '<NavigationButton type="incompleted" selected />'
 
 export const Navigation = () => '<Navigation />'
+
+export const Logo = () => '<TheLogo />'
