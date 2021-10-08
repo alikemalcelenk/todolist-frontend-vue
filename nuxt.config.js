@@ -1,3 +1,5 @@
+import { resolve } from 'path'
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -20,6 +22,10 @@ export default {
     '~/assets/styles/main.scss'
   ],
 
+  styleResources: {
+    scss: ['~/assets/styles/selectors.scss', '~/assets/styles/variables.scss']
+  },
+
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
 
@@ -31,7 +37,8 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/style-resources'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -47,5 +54,9 @@ export default {
   build: {},
 
   // Storybook Configuration: https://storybook.nuxtjs.org/getting-started/installation
-  storybook: {}
+  storybook: {},
+
+  alias: {
+    '@Fonts': resolve(__dirname, './assets/fonts')
+  }
 }

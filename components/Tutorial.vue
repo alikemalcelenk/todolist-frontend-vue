@@ -8,7 +8,7 @@
 </template>
 
 <style lang="scss" scoped>
-$color: var(--c-blue);
+$color: $--c-blue;
 .test {
   color: $color;
   font-size: 50px;
