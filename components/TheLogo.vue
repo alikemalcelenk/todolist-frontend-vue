@@ -8,7 +8,6 @@
 <style lang="scss" scoped>
 .layout {
   display: flex;
-  flex-direction: row;
   align-items: center;
 
   .icon {
