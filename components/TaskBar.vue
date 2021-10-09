@@ -1,5 +1,5 @@
 <template>
-  <Box class="layout">
+  <Box class="root">
     <input
       v-model.trim="task"
       class="input"
@@ -28,14 +28,14 @@ export default {
     },
     addTask() {
       this.task = ''
-      console.log('add task')
+      // console.log('add task')
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.layout {
+.root {
   @extend %flexCenter;
   height: 35px;
 

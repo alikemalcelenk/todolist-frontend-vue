@@ -1,5 +1,5 @@
 <template>
-  <Box class="layout">
+  <Box class="root">
     <NavigationButton
       type="completed"
       :selected="selectedPage === 'completed'"
@@ -23,7 +23,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.layout {
+.root {
   display: flex;
   flex-direction: row;
 }

@@ -1,12 +1,12 @@
 <template>
-  <Box class="layout">
+  <Box class="root">
     <LogoIcon class="icon" />
     <BaseText class="text">Todolist</BaseText>
   </Box>
 </template>
 
 <style lang="scss" scoped>
-.layout {
+.root {
   display: flex;
   align-items: center;
 

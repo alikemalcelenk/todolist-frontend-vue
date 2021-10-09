@@ -1,5 +1,5 @@
 <template>
-  <Tutorial />
+  <BaseText tag="h4">Todolist</BaseText>
 </template>
 
 <script>

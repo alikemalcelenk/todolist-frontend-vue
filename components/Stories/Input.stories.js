@@ -1,5 +1,5 @@
 export default {
-  title: 'Inputs'
+  title: 'Input'
 }
 
 export const TaskBar = () => '<TaskBar  />'
