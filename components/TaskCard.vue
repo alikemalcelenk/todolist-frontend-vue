@@ -1,5 +1,11 @@
 <template>
   <Box class="root">
+    <ModalEdit
+      v-if="showEditModal"
+      :task="task"
+      @close="showEditModal = false"
+    />
+
     <BaseButton class="leftContent" @click.native="setCompleted">
       <Box v-if="task.isCompleted" class="circleCheckIconBox">
         <CircleCheckIcon />
@@ -29,16 +35,24 @@
 
 <script>
 export default {
+  props: {
+    taskProp: {
+      type: Object,
+      default() {
+        return {
+          _id: '1',
+          description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          isCompleted: true,
+          created_at: new Date('2021-09-18T15:10:18.164+00:00')
+        }
+      }
+    }
+  },
   data() {
     return {
-      task: {
-        _id: '1',
-        description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        isCompleted: true,
-        created_at: new Date('2021-09-18T15:10:18.164+00:00')
-      },
-      taskTestInnerStyle: '--textDecoration:'
+      task: this.taskProp,
+      showEditModal: false
     }
   },
   methods: {
@@ -46,7 +60,7 @@ export default {
       this.task.isCompleted = !this.task.isCompleted
     },
     editTask() {
-      alert('edit task')
+      this.showEditModal = true
     },
     deleteTask() {
       alert('delete task')
