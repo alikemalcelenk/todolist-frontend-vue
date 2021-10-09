@@ -4,20 +4,21 @@
     <Box class="modalWrapper">
       <Box class="modalContainer">
         <Box class="header">
-          <PenIcon class="penIcon" />
-          <BaseText class="title">Edit Task</BaseText>
+          <WastebasketIcon class="wastebasketIcon" />
+          <BaseText class="title"
+            >Are you sure you want to delete this task?</BaseText
+          >
         </Box>
 
         <Box class="content">
           <Box class="line" />
-          <Box class="inputBox">
-            <textarea
-              v-model="newTask"
-              class="input"
-              rows="5"
-              maxLength="600"
-              placeholder="Edit task..."
-            />
+          <Box class="contentInnerBox">
+            <BaseText>
+              Task to delete:
+              <BaseText class="descriptionTaskName">{{
+                task.description
+              }}</BaseText>
+            </BaseText>
           </Box>
           <Box class="line" />
         </Box>
@@ -26,10 +27,8 @@
           <BaseButton class="cancelButton" @click.native="$emit('close')"
             >Cancel</BaseButton
           >
-          <BaseButton
-            :class="inputControl ? 'updateButton' : 'updateButtonSoft'"
-            @click.native="$emit('close')"
-            >Update</BaseButton
+          <BaseButton class="deleteButton" @click.native="$emit('close')"
+            >Delete</BaseButton
           >
         </Box>
       </Box>
@@ -51,20 +50,6 @@ export default {
           created_at: new Date('2021-09-18T15:10:18.164+00:00')
         }
       }
-    }
-  },
-  data() {
-    return {
-      newTask: this.task.description,
-      inputControl: false
-    }
-  },
-  watch: {
-    newTask() {
-      this.inputControl =
-        this.newTask &&
-        this.task.description !== this.newTask.trim() &&
-        this.newTask.trim() !== ''
     }
   }
 }
@@ -102,7 +87,7 @@ export default {
         align-items: center;
         padding: 15px 0px 15px 0px;
 
-        .penIcon {
+        .wastebasketIcon {
           height: 26px;
           width: 22px;
           color: $--c-blue;
@@ -110,7 +95,6 @@ export default {
         }
 
         .title {
-          font-size: 14px;
           font-family: SFProDisplay-SemiBold;
         }
       }
@@ -123,26 +107,14 @@ export default {
           background-color: $--c-soft-gray;
         }
 
-        .inputBox {
-          display: flex;
+        .contentInnerBox {
           padding: 15px 0px 15px 0px;
         }
 
-        .input {
-          display: flex;
-          flex-grow: 1;
-          padding: 10px 20px 10px 30px;
-          border: 1px solid $--c-blue;
-          border-radius: 5px;
-          background-color: transparent;
-          max-height: 400px;
-          min-height: 15px;
-          background-color: $--c-white;
-          word-break: break-word;
-
-          &::placeholder {
-            color: $--c-mid-gray;
-          }
+        .descriptionTaskName {
+          font-family: SFProDisplay-RegularItalic;
+          word-break: break-all;
+          white-space: pre-wrap;
         }
       }
 
@@ -152,19 +124,13 @@ export default {
         flex-direction: row;
         justify-content: flex-end;
 
-        .updateButton {
+        .deleteButton {
           padding: 4px 0px 4px 0px;
           width: 75px;
           background-color: $--c-blue;
           border-radius: 3px;
           cursor: pointer;
           color: $--c-white;
-        }
-
-        .updateButtonSoft {
-          @extend .updateButton;
-          opacity: 0.4;
-          cursor: default;
         }
 
         .cancelButton {

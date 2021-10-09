@@ -5,6 +5,11 @@
       :task="task"
       @close="showEditModal = false"
     />
+    <ModalDelete
+      v-if="showDeleteModal"
+      :task="task"
+      @close="showDeleteModal = false"
+    />
 
     <BaseButton class="leftContent" @click.native="setCompleted">
       <Box v-if="task.isCompleted" class="circleCheckIconBox">
@@ -52,7 +57,8 @@ export default {
   data() {
     return {
       task: this.taskProp,
-      showEditModal: false
+      showEditModal: false,
+      showDeleteModal: false
     }
   },
   methods: {
@@ -63,7 +69,7 @@ export default {
       this.showEditModal = true
     },
     deleteTask() {
-      alert('delete task')
+      this.showDeleteModal = true
     }
   }
 }
