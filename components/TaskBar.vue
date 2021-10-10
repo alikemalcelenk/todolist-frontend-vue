@@ -42,11 +42,11 @@ export default {
   .input {
     width: 100%;
     height: 35px;
-    padding: 0px 20px 0px 30px;
+    padding: 0px 20px 0px 20px;
     border-radius: 5px;
     border: 1px solid $--c-blue;
     cursor: pointer;
-    background-color: transparent;
+    background-color: $--c-white;
     font-size: 14px;
     color: $--c-text;
   }

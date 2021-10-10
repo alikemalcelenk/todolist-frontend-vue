@@ -7,5 +7,6 @@
   @extend %flexCenter;
   font-size: 13px;
   border-top: 1px solid $--c-soft-gray;
+  background-color: $--c-white;
 }
 </style>

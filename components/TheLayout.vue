@@ -1,11 +1,11 @@
 <template>
-  <Box class="root">
+  <Box class="layout">
     <slot />
   </Box>
 </template>
 
 <style lang="scss" scoped>
-.root {
+.layout {
   height: 100vh;
   display: grid;
   grid-template-rows: 80px 1fr 80px;

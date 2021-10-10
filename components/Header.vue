@@ -24,5 +24,6 @@ export default {
   flex-direction: row;
   padding: 0px 40px 0px 40px;
   border-bottom: 1px solid $--c-soft-gray;
+  background-color: $--c-white;
 }
 </style>

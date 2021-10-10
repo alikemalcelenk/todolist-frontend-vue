@@ -24,9 +24,16 @@
         :class="task.isCompleted ? 'taskText' : 'taskTextNotCompleted'"
         >{{ task.description }}</BaseText
       >
+
+      <BaseText v-if="windowWidth < TABLET_WIDTH_SIZE" class="dateText">{{
+        createdTime(task.created_at)
+      }}</BaseText>
     </Box>
 
     <Box class="rightContent">
+      <BaseText v-if="windowWidth >= TABLET_WIDTH_SIZE" class="dateText">{{
+        createdTime(task.created_at)
+      }}</BaseText>
       <BaseButton class="iconButton" @click.native="editTask">
         <PenIcon class="penIcon" />
       </BaseButton>
@@ -39,6 +46,9 @@
 </template>
 
 <script>
+import env from '../config/env'
+import CreatedTimeCalculator from './Helpers/CreatedTimeCalculator'
+
 export default {
   props: {
     taskProp: {
@@ -57,9 +67,16 @@ export default {
   data() {
     return {
       task: this.taskProp,
+      windowWidth: process.client && window.innerWidth,
+      TABLET_WIDTH_SIZE: env.TABLET_WIDTH_SIZE,
       showEditModal: false,
       showDeleteModal: false
     }
+  },
+  mounted() {
+    window.addEventListener('resize', () => {
+      this.windowWidth = window.innerWidth
+    })
   },
   methods: {
     setCompleted() {
@@ -70,6 +87,9 @@ export default {
     },
     deleteTask() {
       this.showDeleteModal = true
+    },
+    createdTime(createdAt) {
+      return CreatedTimeCalculator({ createdAt })
     }
   }
 }
@@ -150,6 +170,13 @@ export default {
       width: 22px;
       color: $--c-blue;
     }
+  }
+
+  .dateText {
+    margin-right: 10px;
+    font-size: 12px;
+    color: $--c-mid-gray;
+    font-family: SFProDisplay-RegularItalic;
   }
 }
 </style>
