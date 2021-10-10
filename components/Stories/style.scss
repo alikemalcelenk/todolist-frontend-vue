@@ -1,0 +1,12 @@
+.iconsBox {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 20px;
+
+    .icon {
+        height: 50px;
+        width: 50px;
+    }
+}

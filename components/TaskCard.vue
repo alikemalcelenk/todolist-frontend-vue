@@ -140,7 +140,7 @@ export default {
 
     .penIcon {
       height: 26px;
-      width: 27px;
+      width: 26px;
       margin-right: 10px;
       color: $--c-blue;
     }

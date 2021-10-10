@@ -53,7 +53,7 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
-  // Storybook Configuration: https://storybook.nuxtjs.org/getting-started/installation
+  // Storybook Configuration: https://storybook.nuxtjs.org
   storybook: {},
 
   alias: {

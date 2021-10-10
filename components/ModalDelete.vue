@@ -1,4 +1,3 @@
-<!-- template for the modal component -->
 <template>
   <Box class="modalMask">
     <Box class="modalWrapper">
@@ -121,7 +120,6 @@ export default {
       .footer {
         padding: 10px 0px 10px 0px;
         display: flex;
-        flex-direction: row;
         justify-content: flex-end;
 
         .deleteButton {
