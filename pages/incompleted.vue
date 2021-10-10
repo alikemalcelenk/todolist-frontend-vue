@@ -1,7 +1,7 @@
 <template>
   <TheLayout>
     <Header selectedPage="incompleted" />
-    <Box />
+    <ContentIncompletedPage />
     <TheFooter />
   </TheLayout>
 </template>

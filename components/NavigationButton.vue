@@ -1,6 +1,10 @@
 <template>
   <NuxtLink :to="'/' + type" class="nuxtLink">
-    <BaseButton class="button">
+    <BaseButton
+      :class="
+        windowWidth < MOBILE_WIDTH_SIZE ? 'buttonMobile' : 'buttonDesktop'
+      "
+    >
       <BaseText
         v-if="type === 'completed'"
         class="text"
@@ -15,6 +19,8 @@
 </template>
 
 <script>
+import env from '../config/env'
+
 export default {
   props: {
     type: {
@@ -25,6 +31,17 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+  data() {
+    return {
+      MOBILE_WIDTH_SIZE: env.MOBILE_WIDTH_SIZE,
+      windowWidth: process.client && window.innerWidth
+    }
+  },
+  mounted() {
+    window.addEventListener('resize', () => {
+      this.windowWidth = window.innerWidth
+    })
   }
 }
 </script>
@@ -33,7 +50,21 @@ export default {
 .nuxtLink {
   text-decoration: none;
 
-  .button {
+  .buttonMobile {
+    margin-left: 15px;
+    background-color: transparent;
+    cursor: pointer;
+
+    .text {
+      font-size: 14px;
+    }
+
+    .textSelected {
+      color: $--c-blue;
+    }
+  }
+
+  .buttonDesktop {
     padding: 10px 20px 10px 20px;
     border-radius: 5px;
     cursor: pointer;

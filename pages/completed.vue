@@ -1,7 +1,7 @@
 <template>
   <TheLayout>
     <Header selectedPage="completed" />
-    <Box />
+    <ContentCompletedPage />
     <TheFooter />
   </TheLayout>
 </template>
