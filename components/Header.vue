@@ -23,7 +23,6 @@ export default {
   align-items: center;
   flex-direction: row;
   padding: 0px 40px 0px 40px;
-  background-color: $--c-background;
   border-bottom: 1px solid $--c-soft-gray;
 }
 </style>

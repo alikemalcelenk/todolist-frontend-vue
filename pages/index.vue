@@ -1,7 +1,7 @@
 <template>
   <TheLayout>
     <Header selectedPage="home" />
-    <Box style="background-color: blue" />
-    <Box style="background-color: green" />
+    <Box style="background-color: white" />
+    <TheFooter />
   </TheLayout>
 </template>
