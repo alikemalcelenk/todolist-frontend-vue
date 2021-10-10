@@ -1,15 +1,17 @@
 <template>
-  <BaseButton class="button">
-    <BaseText
-      v-if="type === 'completed'"
-      class="text"
-      :class="selected && 'textSelected'"
-      >Completed</BaseText
-    >
-    <BaseText v-else class="text" :class="selected && 'textSelected'"
-      >Incompleted</BaseText
-    >
-  </BaseButton>
+  <NuxtLink :to="'/' + type" class="nuxtLink">
+    <BaseButton class="button">
+      <BaseText
+        v-if="type === 'completed'"
+        class="text"
+        :class="selected && 'textSelected'"
+        >Completed</BaseText
+      >
+      <BaseText v-else class="text" :class="selected && 'textSelected'"
+        >Incompleted</BaseText
+      >
+    </BaseButton>
+  </NuxtLink>
 </template>
 
 <script>
@@ -28,24 +30,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.button {
-  padding: 10px 20px 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  background-color: transparent;
-  width: fit-content;
+.nuxtLink {
+  text-decoration: none;
 
-  .text {
-    font-size: 14px;
-  }
+  .button {
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: transparent;
+    width: fit-content;
 
-  .textSelected {
-    color: $--c-blue;
-  }
+    .text {
+      font-size: 14px;
+    }
 
-  &:hover {
-    color: $--c-blue;
-    background-color: $--c-blue-10;
+    .textSelected {
+      color: $--c-blue;
+    }
+
+    &:hover {
+      color: $--c-blue;
+      background-color: $--c-blue-10;
+    }
   }
 }
 </style>

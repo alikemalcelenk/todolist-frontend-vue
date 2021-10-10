@@ -16,7 +16,7 @@ export default {
   props: {
     selectedPage: {
       type: String,
-      default: 'completed'
+      default: 'home'
     }
   }
 }

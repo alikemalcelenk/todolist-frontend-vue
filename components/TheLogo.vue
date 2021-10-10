@@ -1,24 +1,31 @@
 <template>
-  <Box class="root">
-    <LogoIcon class="icon" />
-    <BaseText class="text">Todolist</BaseText>
-  </Box>
+  <NuxtLink to="/" class="nuxtLink">
+    <BaseButton class="root">
+      <LogoIcon class="icon" />
+      <BaseText class="text">Todolist</BaseText>
+    </BaseButton>
+  </NuxtLink>
 </template>
 
 <style lang="scss" scoped>
-.root {
-  display: flex;
-  align-items: center;
+.nuxtLink {
+  text-decoration: none;
 
-  .icon {
-    height: 30px;
-    width: 22px;
-    color: $--c-blue;
-  }
+  .root {
+    @extend %flexCenter;
+    background-color: transparent;
+    cursor: pointer;
 
-  .text {
-    margin-left: 10px;
-    font-size: 18px;
+    .icon {
+      height: 30px;
+      width: 22px;
+      color: $--c-blue;
+    }
+
+    .text {
+      margin-left: 10px;
+      font-size: 18px;
+    }
   }
 }
 </style>
