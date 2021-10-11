@@ -8,14 +8,15 @@
       @keypress="onKeyPress"
     />
     <BaseButton v-if="task.length > 1" class="button" @click.native="addTask">
-      <PlusIcon class="plusIcon" />
+      <Spinner v-if="isLoadingCreateTask" :size="10" color="white" />
+      <PlusIcon v-else class="plusIcon" />
     </BaseButton>
   </Box>
 </template>
 
 <script>
 // vuex
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   data() {
@@ -23,16 +24,28 @@ export default {
       task: ''
     }
   },
+  computed: {
+    ...mapGetters({
+      isLoadingCreateTask: 'getIsLoadingCreateTask'
+    })
+  },
+  watch: {
+    isLoadingCreateTask() {
+      if (this.isLoadingCreateTask === false) {
+        this.task = ''
+      }
+    }
+  },
   methods: {
-    ...mapActions(['test']),
+    ...mapActions(['createTask']),
     onKeyPress(event) {
       if (event.key === 'Enter' && this.task.trim() !== '') {
         this.addTask()
       }
     },
     addTask() {
-      this.task = ''
-      this.test({ message: 'test data' })
+      this.createTask({ taskDescription: this.task })
+      // this.task = ''
     }
   }
 }

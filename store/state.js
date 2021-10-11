@@ -1,4 +1,5 @@
 export default () => ({
   tasks: [],
-  wereTasksFetched: false
+  isLoadingGetTasks: false,
+  isLoadingCreateTask: false
 })

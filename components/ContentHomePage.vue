@@ -9,7 +9,7 @@
   >
     <TaskBar class="taskBar" />
     <Box class="listBox">
-      <Box v-if="!wereTasksFetched" class="listInnerSpinnerBox">
+      <Box v-if="isLoadingGetTasks" class="listInnerSpinnerBox">
         <Spinner :size="40" color="blue" />
       </Box>
 
@@ -43,7 +43,7 @@ export default {
   computed: {
     ...mapGetters({
       tasks: 'getTasks',
-      wereTasksFetched: 'getWereTasksFetched'
+      isLoadingGetTasks: 'getIsLoadingGetTasks'
     })
   },
   created() {

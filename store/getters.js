@@ -2,7 +2,10 @@ export default {
   getTasks: (state) => {
     return state.tasks
   },
-  getWereTasksFetched: (state) => {
-    return state.wereTasksFetched
+  getIsLoadingGetTasks: (state) => {
+    return state.isLoadingGetTasks
+  },
+  getIsLoadingCreateTask: (state) => {
+    return state.isLoadingCreateTask
   }
 }
