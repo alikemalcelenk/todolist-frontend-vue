@@ -46,12 +46,18 @@
 </template>
 
 <script>
+// vuex
+import { mapActions } from 'vuex'
+
+// config
 import env from '../config/env'
+
+// utils
 import createdTimeCalculator from '../utils/createdTimeCalculator'
 
 export default {
   props: {
-    taskProp: {
+    task: {
       type: Object,
       default() {
         return {
@@ -66,7 +72,6 @@ export default {
   },
   data() {
     return {
-      task: this.taskProp,
       windowWidth: process.client && window.innerWidth,
       TABLET_WIDTH_SIZE: env.TABLET_WIDTH_SIZE,
       showEditModal: false,
@@ -79,8 +84,12 @@ export default {
     })
   },
   methods: {
+    ...mapActions(['switchCompletionOfTask']),
     setCompleted() {
-      this.task.isCompleted = !this.task.isCompleted
+      this.switchCompletionOfTask({
+        taskId: this.task._id,
+        isCompleted: this.task.isCompleted
+      })
     },
     editTask() {
       this.showEditModal = true

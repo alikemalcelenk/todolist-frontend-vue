@@ -18,7 +18,7 @@
         <TaskCard
           v-for="task in tasks"
           :key="task._id"
-          :taskProp="task"
+          :task="task"
           class="taskCard"
         />
       </Box>

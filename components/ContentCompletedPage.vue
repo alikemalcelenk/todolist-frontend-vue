@@ -13,7 +13,7 @@
         <TaskCard
           v-for="task in completedTasks"
           :key="task._id"
-          :taskProp="task"
+          :task="task"
           class="taskCard"
         />
       </Box>

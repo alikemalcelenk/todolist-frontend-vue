@@ -28,5 +28,9 @@ export default {
     const taskIndex = state.tasks.findIndex((task) => task._id === taskId)
     state.tasks[taskIndex].description = description
     state.isLoadingEditTask = false
+  },
+  REQUEST_SWITCH_COMPLETION_OF_TASK_SUCCESS(state, { taskId }) {
+    const taskIndex = state.tasks.findIndex((task) => task._id === taskId)
+    state.tasks[taskIndex].isCompleted = !state.tasks[taskIndex].isCompleted
   }
 }
