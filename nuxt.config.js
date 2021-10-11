@@ -1,5 +1,7 @@
 import { resolve } from 'path'
 
+import env from './config/env'
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -48,7 +50,9 @@ export default {
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: env.API_SERVICE_URL
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},

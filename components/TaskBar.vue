@@ -14,6 +14,9 @@
 </template>
 
 <script>
+// vuex
+import { mapActions } from 'vuex'
+
 export default {
   data() {
     return {
@@ -21,6 +24,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['test']),
     onKeyPress(event) {
       if (event.key === 'Enter' && this.task.trim() !== '') {
         this.addTask()
@@ -28,7 +32,7 @@ export default {
     },
     addTask() {
       this.task = ''
-      // console.log('add task')
+      this.test({ message: 'test data' })
     }
   }
 }

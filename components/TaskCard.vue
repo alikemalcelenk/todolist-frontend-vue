@@ -47,7 +47,7 @@
 
 <script>
 import env from '../config/env'
-import CreatedTimeCalculator from './Helpers/CreatedTimeCalculator'
+import createdTimeCalculator from '../utils/createdTimeCalculator'
 
 export default {
   props: {
@@ -89,7 +89,7 @@ export default {
       this.showDeleteModal = true
     },
     createdTime(createdAt) {
-      return CreatedTimeCalculator({ createdAt })
+      return createdTimeCalculator({ createdAt })
     }
   }
 }

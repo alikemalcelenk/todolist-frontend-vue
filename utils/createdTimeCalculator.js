@@ -1,4 +1,4 @@
-const TimeCalculator = ({ createdAt }) => {
+const CreatedTimeCalculator = ({ createdAt }) => {
   const createdDate = new Date(createdAt)
   const nowDate = new Date()
 
@@ -73,4 +73,4 @@ const TimeCalculator = ({ createdAt }) => {
   return `${createdTime} · ${dayName}, ${date} ${monthName} ${createdYear}`
 }
 
-export default TimeCalculator
+export default CreatedTimeCalculator

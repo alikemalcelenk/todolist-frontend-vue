@@ -23,16 +23,21 @@
 </template>
 
 <script>
-import exTasks from '../assets/exTasks'
+// vuex
+import { mapGetters } from 'vuex'
+
+// config
 import env from '../config/env'
 
 export default {
   data() {
     return {
-      tasks: exTasks,
       MOBILE_WIDTH_SIZE: env.MOBILE_WIDTH_SIZE,
       windowWidth: process.client && window.innerWidth
     }
+  },
+  computed: {
+    ...mapGetters({ tasks: 'getTasks' })
   },
   mounted() {
     window.addEventListener('resize', () => {
