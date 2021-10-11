@@ -9,7 +9,11 @@
   >
     <TaskBar class="taskBar" />
     <Box class="listBox">
-      <Box class="listInnerBox">
+      <Box v-if="!wereTasksFetched" class="listInnerSpinnerBox">
+        <Spinner :size="40" color="blue" />
+      </Box>
+
+      <Box v-else class="listInnerBox">
         <BaseText class="listTitle">All Tasks</BaseText>
         <TaskCard
           v-for="task in tasks"
@@ -24,7 +28,7 @@
 
 <script>
 // vuex
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 // config
 import env from '../config/env'
@@ -37,12 +41,21 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({ tasks: 'getTasks' })
+    ...mapGetters({
+      tasks: 'getTasks',
+      wereTasksFetched: 'getWereTasksFetched'
+    })
+  },
+  created() {
+    this.getTasks()
   },
   mounted() {
     window.addEventListener('resize', () => {
       this.windowWidth = window.innerWidth
     })
+  },
+  methods: {
+    ...mapActions(['getTasks'])
   }
 }
 </script>
@@ -69,6 +82,12 @@ export default {
     max-width: 1000px;
     margin-bottom: 30px;
     margin-top: 30px;
+
+    .listInnerSpinnerBox {
+      @extend %flexCenter;
+      width: 100%;
+      height: 100%;
+    }
 
     .listInnerBox {
       display: flex;
