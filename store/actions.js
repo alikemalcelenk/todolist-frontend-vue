@@ -27,5 +27,16 @@ export default {
     } catch (e) {
       console.log(e)
     }
+  },
+  async editTask({ commit }, { taskId, description }) {
+    try {
+      await commit('REQUEST_EDIT_TASK')
+      await this.$axios.$put(`/${taskId}`, {
+        description
+      })
+      commit('REQUEST_EDIT_TASK_SUCCESS', { taskId, description })
+    } catch (e) {
+      console.log(e)
+    }
   }
 }

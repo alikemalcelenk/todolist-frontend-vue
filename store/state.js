@@ -2,5 +2,6 @@ export default () => ({
   tasks: [],
   isLoadingGetTasks: false,
   isLoadingCreateTask: false,
-  isLoadingDeleteTask: false
+  isLoadingDeleteTask: false,
+  isLoadingEditTask: false
 })

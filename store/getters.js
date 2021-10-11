@@ -10,5 +10,8 @@ export default {
   },
   getIsLoadingDeleteTask: (state) => {
     return state.isLoadingDeleteTask
+  },
+  getIsLoadingEditTask: (state) => {
+    return state.isLoadingEditTask
   }
 }

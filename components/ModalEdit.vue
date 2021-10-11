@@ -11,7 +11,7 @@
           <Box class="line" />
           <Box class="inputBox">
             <textarea
-              v-model="newTask"
+              v-model="newTaskDescription"
               class="input"
               rows="5"
               maxLength="600"
@@ -26,10 +26,14 @@
             >Cancel</BaseButton
           >
           <BaseButton
-            :class="inputControl ? 'updateButton' : 'updateButtonSoft'"
-            @click.native="$emit('close')"
-            >Update</BaseButton
+            :class="inputControl ? 'editButton' : 'editButtonSoft'"
+            @click.native="
+              editTask({ taskId: task._id, description: newTaskDescription })
+            "
           >
+            <Spinner v-if="isLoadingEditTask" :size="10" color="white" />
+            <BaseText v-else class="editButtonText">Edit</BaseText>
+          </BaseButton>
         </Box>
       </Box>
     </Box>
@@ -37,6 +41,9 @@
 </template>
 
 <script>
+// vuex
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
   props: {
     task: {
@@ -54,17 +61,30 @@ export default {
   },
   data() {
     return {
-      newTask: this.task.description,
+      newTaskDescription: this.task.description,
       inputControl: false
     }
   },
+  computed: {
+    ...mapGetters({
+      isLoadingEditTask: 'getIsLoadingEditTask'
+    })
+  },
   watch: {
-    newTask() {
+    newTaskDescription() {
       this.inputControl =
-        this.newTask &&
-        this.task.description !== this.newTask.trim() &&
-        this.newTask.trim() !== ''
+        this.newTaskDescription &&
+        this.task.description !== this.newTaskDescription.trim() &&
+        this.newTaskDescription.trim() !== ''
+    },
+    isLoadingEditTask() {
+      if (this.isLoadingEditTask === false) {
+        this.$emit('close')
+      }
     }
+  },
+  methods: {
+    ...mapActions(['editTask'])
   }
 }
 </script>
@@ -150,17 +170,20 @@ export default {
         display: flex;
         justify-content: flex-end;
 
-        .updateButton {
+        .editButton {
           padding: 4px 0px 4px 0px;
           width: 75px;
           background-color: $--c-blue;
           border-radius: 3px;
           cursor: pointer;
-          color: $--c-white;
+
+          .editButtonText {
+            color: $--c-white;
+          }
         }
 
-        .updateButtonSoft {
-          @extend .updateButton;
+        .editButtonSoft {
+          @extend .editButton;
           opacity: 0.4;
           cursor: default;
         }

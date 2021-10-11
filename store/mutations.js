@@ -20,5 +20,13 @@ export default {
     const taskIndex = state.tasks.findIndex((task) => task._id === taskId)
     state.tasks.splice(taskIndex, 1)
     state.isLoadingDeleteTask = false
+  },
+  REQUEST_EDIT_TASK(state) {
+    state.isLoadingEditTask = true
+  },
+  REQUEST_EDIT_TASK_SUCCESS(state, { taskId, description }) {
+    const taskIndex = state.tasks.findIndex((task) => task._id === taskId)
+    state.tasks[taskIndex].description = description
+    state.isLoadingEditTask = false
   }
 }
