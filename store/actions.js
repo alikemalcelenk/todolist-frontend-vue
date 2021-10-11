@@ -8,13 +8,22 @@ export default {
       console.log(e)
     }
   },
-  async createTask({ commit }, { taskDescription }) {
+  async createTask({ commit }, { description }) {
     try {
       await commit('REQUEST_CREATE_TASK')
       const { task } = await this.$axios.$post('', {
-        description: taskDescription
+        description
       })
       commit('REQUEST_CREATE_TASK_SUCCESS', { task })
+    } catch (e) {
+      console.log(e)
+    }
+  },
+  async deleteTask({ commit }, { taskId }) {
+    try {
+      await commit('REQUEST_DELETE_TASK')
+      await this.$axios.$delete(`/${taskId}`)
+      commit('REQUEST_DELETE_TASK_SUCCESS', { taskId })
     } catch (e) {
       console.log(e)
     }

@@ -12,5 +12,13 @@ export default {
   REQUEST_CREATE_TASK_SUCCESS(state, { task }) {
     state.tasks.unshift(task)
     state.isLoadingCreateTask = false
+  },
+  REQUEST_DELETE_TASK(state) {
+    state.isLoadingDeleteTask = true
+  },
+  REQUEST_DELETE_TASK_SUCCESS(state, { taskId }) {
+    const taskIndex = state.tasks.findIndex((task) => task._id === taskId)
+    state.tasks.splice(taskIndex, 1)
+    state.isLoadingDeleteTask = false
   }
 }

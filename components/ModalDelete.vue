@@ -26,9 +26,13 @@
           <BaseButton class="cancelButton" @click.native="$emit('close')"
             >Cancel</BaseButton
           >
-          <BaseButton class="deleteButton" @click.native="$emit('close')"
-            >Delete</BaseButton
+          <BaseButton
+            class="deleteButton"
+            @click.native="deleteTask({ taskId: task._id })"
           >
+            <Spinner v-if="isLoadingDeleteTask" :size="10" color="white" />
+            <BaseText v-else class="deleteButtonText">Delete</BaseText>
+          </BaseButton>
         </Box>
       </Box>
     </Box>
@@ -36,6 +40,9 @@
 </template>
 
 <script>
+// vuex
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
   props: {
     task: {
@@ -50,6 +57,21 @@ export default {
         }
       }
     }
+  },
+  computed: {
+    ...mapGetters({
+      isLoadingDeleteTask: 'getIsLoadingDeleteTask'
+    })
+  },
+  watch: {
+    isLoadingDeleteTask() {
+      if (this.isLoadingDeleteTask === false) {
+        this.$emit('close')
+      }
+    }
+  },
+  methods: {
+    ...mapActions(['deleteTask'])
   }
 }
 </script>
@@ -128,7 +150,10 @@ export default {
           background-color: $--c-blue;
           border-radius: 3px;
           cursor: pointer;
-          color: $--c-white;
+
+          .deleteButtonText {
+            color: $--c-white;
+          }
         }
 
         .cancelButton {

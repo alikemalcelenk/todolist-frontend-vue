@@ -7,5 +7,8 @@ export default {
   },
   getIsLoadingCreateTask: (state) => {
     return state.isLoadingCreateTask
+  },
+  getIsLoadingDeleteTask: (state) => {
+    return state.isLoadingDeleteTask
   }
 }

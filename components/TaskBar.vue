@@ -1,13 +1,17 @@
 <template>
   <Box class="root">
     <input
-      v-model.trim="task"
+      v-model.trim="taskDescription"
       class="input"
       type="text"
       placeholder="Add a new task..."
       @keypress="onKeyPress"
     />
-    <BaseButton v-if="task.length > 1" class="button" @click.native="addTask">
+    <BaseButton
+      v-if="taskDescription.length > 1"
+      class="button"
+      @click.native="addTask"
+    >
       <Spinner v-if="isLoadingCreateTask" :size="10" color="white" />
       <PlusIcon v-else class="plusIcon" />
     </BaseButton>
@@ -21,7 +25,7 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
   data() {
     return {
-      task: ''
+      taskDescription: ''
     }
   },
   computed: {
@@ -32,20 +36,19 @@ export default {
   watch: {
     isLoadingCreateTask() {
       if (this.isLoadingCreateTask === false) {
-        this.task = ''
+        this.taskDescription = ''
       }
     }
   },
   methods: {
     ...mapActions(['createTask']),
     onKeyPress(event) {
-      if (event.key === 'Enter' && this.task.trim() !== '') {
+      if (event.key === 'Enter' && this.taskDescription.trim() !== '') {
         this.addTask()
       }
     },
     addTask() {
-      this.createTask({ taskDescription: this.task })
-      // this.task = ''
+      this.createTask({ description: this.taskDescription })
     }
   }
 }
