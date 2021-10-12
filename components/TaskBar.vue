@@ -8,7 +8,7 @@
       @keypress="onKeyPress"
     />
     <BaseButton
-      v-if="taskDescription.length > 1"
+      v-if="taskDescription.length > 0"
       class="button"
       @click.native="addTask"
     >

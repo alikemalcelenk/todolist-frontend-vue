@@ -9,8 +9,14 @@
   >
     <TaskBar class="taskBar" />
     <Box class="listBox">
-      <Box v-if="isLoadingGetTasks" class="listInnerSpinnerBox">
+      <Box v-if="isLoadingGetTasks" class="listInnerCenterBox">
         <Spinner :size="40" color="blue" />
+      </Box>
+
+      <Box v-else-if="tasks.length === 0" class="listInnerCenterBox">
+        <BaseText>
+          There aren't any tasks in our records. Please add a new task.
+        </BaseText>
       </Box>
 
       <Box v-else class="listInnerBox">
@@ -83,7 +89,7 @@ export default {
     margin-bottom: 30px;
     margin-top: 30px;
 
-    .listInnerSpinnerBox {
+    .listInnerCenterBox {
       @extend %flexCenter;
       width: 100%;
       height: 100%;
