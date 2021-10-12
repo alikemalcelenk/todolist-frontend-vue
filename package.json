@@ -4,7 +4,7 @@
   "description": "Todolist Web Client that is written in JavaScript using Vue.",
   "scripts": {
     "dev": "nuxt",
-    "build": "yarn nuxt storybook build && nuxt build",
+    "build": "yarn nuxt storybook build && nuxt generate",
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
