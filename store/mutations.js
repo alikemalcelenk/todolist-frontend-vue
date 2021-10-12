@@ -32,5 +32,12 @@ export default {
   REQUEST_SWITCH_COMPLETION_OF_TASK_SUCCESS(state, { taskId }) {
     const taskIndex = state.tasks.findIndex((task) => task._id === taskId)
     state.tasks[taskIndex].isCompleted = !state.tasks[taskIndex].isCompleted
+  },
+  ERROR_OCCURED(state) {
+    state.isLoadingGetTasks = false
+    state.isLoadingCreateTask = false
+    state.isLoadingDeleteTask = false
+    state.isLoadingEditTask = false
+    state.isErrorAnyRequest = true
   }
 }

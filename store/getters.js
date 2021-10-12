@@ -13,5 +13,8 @@ export default {
   },
   getIsLoadingEditTask: (state) => {
     return state.isLoadingEditTask
+  },
+  getIsErrorAnyRequest: (state) => {
+    return state.isErrorAnyRequest
   }
 }

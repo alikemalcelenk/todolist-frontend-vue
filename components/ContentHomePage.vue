@@ -13,6 +13,10 @@
         <Spinner :size="40" color="blue" />
       </Box>
 
+      <Box v-else-if="isErrorAnyRequest" class="listInnerCenterBox">
+        <BaseText> An error occurred. Please try again. </BaseText>
+      </Box>
+
       <Box v-else-if="tasks.length === 0" class="listInnerCenterBox">
         <BaseText>
           There aren't any tasks in our records. Please add a new task.
@@ -49,7 +53,8 @@ export default {
   computed: {
     ...mapGetters({
       tasks: 'getTasks',
-      isLoadingGetTasks: 'getIsLoadingGetTasks'
+      isLoadingGetTasks: 'getIsLoadingGetTasks',
+      isErrorAnyRequest: 'getIsErrorAnyRequest'
     })
   },
   created() {

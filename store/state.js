@@ -3,5 +3,6 @@ export default () => ({
   isLoadingGetTasks: false,
   isLoadingCreateTask: false,
   isLoadingDeleteTask: false,
-  isLoadingEditTask: false
+  isLoadingEditTask: false,
+  isErrorAnyRequest: false
 })

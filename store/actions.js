@@ -5,7 +5,7 @@ export default {
       const { tasks } = await this.$axios.$get()
       commit('REQUEST_GET_TASKS_SUCCESS', { tasks })
     } catch (e) {
-      // console.log(e)
+      commit('ERROR_OCCURED')
     }
   },
   async createTask({ commit }, { description }) {
@@ -16,7 +16,7 @@ export default {
       })
       commit('REQUEST_CREATE_TASK_SUCCESS', { task })
     } catch (e) {
-      // console.log(e)
+      commit('ERROR_OCCURED')
     }
   },
   async deleteTask({ commit }, { taskId }) {
@@ -25,7 +25,7 @@ export default {
       await this.$axios.$delete(`/${taskId}`)
       commit('REQUEST_DELETE_TASK_SUCCESS', { taskId })
     } catch (e) {
-      // console.log(e)
+      commit('ERROR_OCCURED')
     }
   },
   async editTask({ commit }, { taskId, description }) {
@@ -36,7 +36,7 @@ export default {
       })
       commit('REQUEST_EDIT_TASK_SUCCESS', { taskId, description })
     } catch (e) {
-      // console.log(e)
+      commit('ERROR_OCCURED')
     }
   },
   async switchCompletionOfTask({ commit }, { taskId, isCompleted }) {
@@ -48,7 +48,7 @@ export default {
         taskId
       })
     } catch (e) {
-      // console.log(e)
+      commit('ERROR_OCCURED')
     }
   }
 }
