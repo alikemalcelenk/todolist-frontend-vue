@@ -7,8 +7,23 @@
         : '--home-content-padding: 0px 40px 0px 40px'
     "
   >
+    <TaskBar class="taskBar" />
     <Box class="listBox">
-      <Box class="listInnerBox">
+      <Box v-if="isLoadingGetTasks" class="listInnerCenterBox">
+        <Spinner :size="40" color="blue" />
+      </Box>
+
+      <Box v-else-if="isErrorAnyRequest" class="listInnerCenterBox">
+        <BaseText>
+          An error occurred. Please refresh the page and try again.</BaseText
+        >
+      </Box>
+
+      <Box v-else-if="completedTasks.length === 0" class="listInnerCenterBox">
+        <BaseText> There aren't any completed tasks in our records. </BaseText>
+      </Box>
+
+      <Box v-else class="listInnerBox">
         <BaseText class="listTitle">Completed Tasks</BaseText>
         <TaskCard
           v-for="task in completedTasks"
@@ -22,21 +37,37 @@
 </template>
 
 <script>
-import exTasks from '../assets/exTasks'
+// vuex
+import { mapActions, mapGetters } from 'vuex'
+
+// config
 import env from '../config/env'
 
 export default {
   data() {
     return {
-      completedTasks: exTasks.filter((task) => task.isCompleted === true),
       MOBILE_WIDTH_SIZE: env.MOBILE_WIDTH_SIZE,
       windowWidth: process.client && window.innerWidth
     }
+  },
+  computed: {
+    ...mapGetters({
+      completedTasks: 'getCompletedTasks',
+      isLoadingGetTasks: 'getIsLoadingGetTasks',
+      isErrorAnyRequest: 'getIsErrorAnyRequest'
+    })
+  },
+  created() {
+    // if'i ekleme sebebim, datalar zaten store'da olduğu için sayfalarda gezinirken gereksiz API isteğnii engellemek.
+    if (this.completedTasks.length === 0) this.getTasks()
   },
   mounted() {
     window.addEventListener('resize', () => {
       this.windowWidth = window.innerWidth
     })
+  },
+  methods: {
+    ...mapActions(['getTasks'])
   }
 }
 </script>
@@ -63,6 +94,12 @@ export default {
     max-width: 1000px;
     margin-bottom: 30px;
     margin-top: 30px;
+
+    .listInnerCenterBox {
+      @extend %flexCenter;
+      width: 100%;
+      height: 100%;
+    }
 
     .listInnerBox {
       display: flex;

@@ -14,7 +14,9 @@
       </Box>
 
       <Box v-else-if="isErrorAnyRequest" class="listInnerCenterBox">
-        <BaseText> An error occurred. Please try again. </BaseText>
+        <BaseText>
+          An error occurred. Please refresh the page and try again.
+        </BaseText>
       </Box>
 
       <Box v-else-if="tasks.length === 0" class="listInnerCenterBox">
@@ -58,7 +60,8 @@ export default {
     })
   },
   created() {
-    this.getTasks()
+    // if'i ekleme sebebim, datalar zaten store'da olduğu için sayfalarda gezinirken gereksiz API isteğnii engellemek.
+    if (this.tasks.length === 0) this.getTasks()
   },
   mounted() {
     window.addEventListener('resize', () => {
