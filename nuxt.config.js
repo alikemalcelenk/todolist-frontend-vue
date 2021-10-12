@@ -62,5 +62,9 @@ export default {
 
   alias: {
     '@Fonts': resolve(__dirname, './assets/fonts')
+  },
+
+  generate: {
+    dir: 'dist'
   }
 }
