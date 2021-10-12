@@ -64,7 +64,5 @@ export default {
     '@Fonts': resolve(__dirname, './assets/fonts')
   },
 
-  generate: {
-    dir: 'dist'
-  }
+  buildDir: 'dist'
 }
