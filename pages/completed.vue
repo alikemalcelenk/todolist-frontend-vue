@@ -5,3 +5,13 @@
     <TheFooter />
   </TheLayout>
 </template>
+
+<script>
+export default {
+  head() {
+    return {
+      title: 'Completed Tasks | Todolist'
+    }
+  }
+}
+</script>
