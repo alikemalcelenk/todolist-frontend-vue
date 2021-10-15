@@ -92,12 +92,11 @@ export default {
     height: 100%;
 
     .modalContainer {
-      display: flex;
-      flex-direction: column;
+      @extend %flexColumn;
       padding: 10px 40px 10px 40px;
-      border: 1px solid $--c-soft-gray;
+      border: 1px solid $colour-g-soft-gray;
       border-radius: 5px;
-      background-color: $--c-background;
+      background-color: $colour-g-background;
       margin: 10px 20px 10px 20px;
       max-width: 500px;
       min-width: 250px;
@@ -111,7 +110,7 @@ export default {
         .wastebasketIcon {
           height: 26px;
           width: 22px;
-          color: $--c-blue;
+          color: $colour-g-blue;
           margin-right: 8px;
         }
 
@@ -125,7 +124,7 @@ export default {
           display: flex;
           height: 1px;
           width: 100%;
-          background-color: $--c-soft-gray;
+          background-color: $colour-g-soft-gray;
         }
 
         .contentInnerBox {
@@ -147,19 +146,19 @@ export default {
         .deleteButton {
           padding: 4px 0px 4px 0px;
           width: 75px;
-          background-color: $--c-blue;
+          background-color: $colour-g-blue;
           border-radius: 3px;
           cursor: pointer;
 
           .deleteButtonText {
-            color: $--c-white;
+            color: $colour-g-white;
           }
         }
 
         .cancelButton {
           margin-right: 10px;
           padding: 4px 14px 4px 14px;
-          border: 1px solid $--c-black;
+          border: 1px solid $colour-g-black;
           background-color: transparent;
           border-radius: 3px;
           cursor: pointer;

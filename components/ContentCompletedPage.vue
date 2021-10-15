@@ -7,7 +7,6 @@
         : '--home-content-padding: 0px 40px 0px 40px'
     "
   >
-    <TaskBar class="taskBar" />
     <Box class="listBox">
       <Box v-if="isLoadingGetTasks" class="listInnerCenterBox">
         <Spinner :size="40" color="blue" />
@@ -41,7 +40,7 @@
 import { mapActions, mapGetters } from 'vuex'
 
 // config
-import env from '../config/env'
+import env from '@config/env'
 
 export default {
   data() {
@@ -74,8 +73,7 @@ export default {
 
 <style lang="scss" scoped>
 .homeContent {
-  display: flex;
-  flex-direction: column;
+  @extend %flexColumn;
   justify-content: flex-start;
   align-items: center;
   padding: var(--home-content-padding);
@@ -102,8 +100,7 @@ export default {
     }
 
     .listInnerBox {
-      display: flex;
-      flex-direction: column;
+      @extend %flexColumn;
       width: 100%;
 
       .listTitle {

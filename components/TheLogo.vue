@@ -19,7 +19,7 @@
     .icon {
       height: 30px;
       width: 22px;
-      color: $--c-blue;
+      color: $colour-g-blue;
     }
 
     .text {

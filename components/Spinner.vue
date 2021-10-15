@@ -30,9 +30,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@function make-greener($value) {
+  @debug $value;
+  @return $value;
+}
+
 .sk-chase {
   width: var(--spinner-size);
-  height: var(--spinner-size);
+  height: make-greener(var(--spinner-size));
   position: relative;
   animation: sk-chase 2.5s infinite linear both;
 

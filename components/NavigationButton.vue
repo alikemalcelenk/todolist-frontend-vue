@@ -2,7 +2,7 @@
   <NuxtLink :to="'/' + type" class="nuxtLink">
     <BaseButton
       :class="
-        windowWidth < MOBILE_WIDTH_SIZE ? 'buttonMobile' : 'buttonDesktop'
+        windowWidth < MOBILE_WIDTH_SIZE ? 'button--mobile' : 'button--desktop'
       "
     >
       <BaseText
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import env from '../config/env'
+import env from '@config/env'
 
 export default {
   props: {
@@ -50,38 +50,34 @@ export default {
 .nuxtLink {
   text-decoration: none;
 
-  .buttonMobile {
-    margin-left: 15px;
-    background-color: transparent;
+  .button {
     cursor: pointer;
+    background-color: transparent;
 
     .text {
       font-size: 14px;
     }
 
     .textSelected {
-      color: $--c-blue;
-    }
-  }
-
-  .buttonDesktop {
-    padding: 10px 20px 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: transparent;
-    width: fit-content;
-
-    .text {
-      font-size: 14px;
+      color: $colour-g-blue;
     }
 
-    .textSelected {
-      color: $--c-blue;
+    &--desktop {
+      padding: 10px 20px 10px 20px;
+      border-radius: 5px;
+      width: fit-content;
+
+      &:hover {
+        background-color: $colour-g-blue-10;
+      }
+
+      &:hover .text {
+        color: $colour-g-blue;
+      }
     }
 
-    &:hover {
-      color: $--c-blue;
-      background-color: $--c-blue-10;
+    &--mobile {
+      margin-left: 15px;
     }
   }
 }

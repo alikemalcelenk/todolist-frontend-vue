@@ -105,12 +105,11 @@ export default {
     height: 100%;
 
     .modalContainer {
-      display: flex;
-      flex-direction: column;
+      @extend %flexColumn;
       padding: 10px 40px 10px 40px;
-      border: 1px solid $--c-soft-gray;
+      border: 1px solid $colour-g-soft-gray;
       border-radius: 5px;
-      background-color: $--c-background;
+      background-color: $colour-g-background;
       margin: 10px 20px 10px 20px;
       max-width: 500px;
       min-width: 250px;
@@ -124,7 +123,7 @@ export default {
         .penIcon {
           height: 26px;
           width: 22px;
-          color: $--c-blue;
+          color: $colour-g-blue;
           margin-right: 8px;
         }
 
@@ -139,7 +138,7 @@ export default {
           display: flex;
           height: 1px;
           width: 100%;
-          background-color: $--c-soft-gray;
+          background-color: $colour-g-soft-gray;
         }
 
         .inputBox {
@@ -151,16 +150,16 @@ export default {
           display: flex;
           flex-grow: 1;
           padding: 10px 20px 10px 30px;
-          border: 1px solid $--c-blue;
+          border: 1px solid $colour-g-blue;
           border-radius: 5px;
           background-color: transparent;
           max-height: 400px;
           min-height: 15px;
-          background-color: $--c-white;
+          background-color: $colour-g-white;
           word-break: break-word;
 
           &::placeholder {
-            color: $--c-mid-gray;
+            color: $colour-g-mid-gray;
           }
         }
       }
@@ -173,12 +172,12 @@ export default {
         .editButton {
           padding: 4px 0px 4px 0px;
           width: 75px;
-          background-color: $--c-blue;
+          background-color: $colour-g-blue;
           border-radius: 3px;
           cursor: pointer;
 
           .editButtonText {
-            color: $--c-white;
+            color: $colour-g-white;
           }
         }
 
@@ -191,7 +190,7 @@ export default {
         .cancelButton {
           margin-right: 10px;
           padding: 4px 14px 4px 14px;
-          border: 1px solid $--c-black;
+          border: 1px solid $colour-g-black;
           background-color: transparent;
           border-radius: 3px;
           cursor: pointer;

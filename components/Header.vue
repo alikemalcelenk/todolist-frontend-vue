@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import env from '../config/env'
+import env from '@config/env'
 
 export default {
   props: {
@@ -43,7 +43,7 @@ export default {
   align-items: center;
   flex-direction: row;
   padding: var(--home-content-padding);
-  border-bottom: 1px solid $--c-soft-gray;
-  background-color: $--c-white;
+  border-bottom: 1px solid $colour-g-soft-gray;
+  background-color: $colour-g-white;
 }
 </style>

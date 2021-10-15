@@ -61,6 +61,8 @@ export default {
   storybook: {},
 
   alias: {
-    '@Fonts': resolve(__dirname, './assets/fonts')
-  },
+    '@fonts': resolve(__dirname, './assets/fonts'),
+    '@config': resolve(__dirname, './config'),
+    '@utils': resolve(__dirname, './utils')
+  }
 }

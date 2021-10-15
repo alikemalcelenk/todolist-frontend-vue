@@ -64,11 +64,11 @@ export default {
     height: 35px;
     padding: 0px 20px 0px 20px;
     border-radius: 5px;
-    border: 1px solid $--c-blue;
+    border: 1px solid $colour-g-blue;
     cursor: pointer;
-    background-color: $--c-white;
+    background-color: $colour-g-white;
     font-size: 14px;
-    color: $--c-text;
+    color: $colour-g-text;
   }
 
   .button {
@@ -76,13 +76,13 @@ export default {
     width: 60px;
     border-radius: 5px;
     cursor: pointer;
-    background-color: $--c-blue;
+    background-color: $colour-g-blue;
     margin-left: 10px;
 
     .plusIcon {
       height: 15px;
       width: 15px;
-      color: $--c-background;
+      color: $colour-g-background;
     }
   }
 }

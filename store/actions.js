@@ -1,40 +1,40 @@
 export default {
   async getTasks({ commit }) {
     try {
-      await commit('REQUEST_GET_TASKS')
+      await commit('GET_TASKS_REQUEST')
       const { tasks } = await this.$axios.$get()
-      commit('REQUEST_GET_TASKS_SUCCESS', { tasks })
+      commit('GET_TASKS_SUCCESS', { tasks })
     } catch (e) {
       commit('ERROR_OCCURED')
     }
   },
   async createTask({ commit }, { description }) {
     try {
-      await commit('REQUEST_CREATE_TASK')
+      await commit('CREATE_TASK_REQUEST')
       const { task } = await this.$axios.$post('', {
         description
       })
-      commit('REQUEST_CREATE_TASK_SUCCESS', { task })
+      commit('CREATE_TASK_SUCCESS', { task })
     } catch (e) {
       commit('ERROR_OCCURED')
     }
   },
   async deleteTask({ commit }, { taskId }) {
     try {
-      await commit('REQUEST_DELETE_TASK')
+      await commit('DELETE_TASK_REQUEST')
       await this.$axios.$delete(`/${taskId}`)
-      commit('REQUEST_DELETE_TASK_SUCCESS', { taskId })
+      commit('DELETE_TASK_SUCCESS', { taskId })
     } catch (e) {
       commit('ERROR_OCCURED')
     }
   },
   async editTask({ commit }, { taskId, description }) {
     try {
-      await commit('REQUEST_EDIT_TASK')
+      await commit('EDIT_TASK_REQUEST')
       await this.$axios.$put(`/${taskId}`, {
         description
       })
-      commit('REQUEST_EDIT_TASK_SUCCESS', { taskId, description })
+      commit('EDIT_TASK_SUCCESS', { taskId, description })
     } catch (e) {
       commit('ERROR_OCCURED')
     }
@@ -44,7 +44,7 @@ export default {
       await this.$axios.$put(`/${taskId}`, {
         isCompleted: !isCompleted
       })
-      commit('REQUEST_SWITCH_COMPLETION_OF_TASK_SUCCESS', {
+      commit('SWITCH_COMPLETION_OF_TASK_SUCCESS', {
         taskId
       })
     } catch (e) {

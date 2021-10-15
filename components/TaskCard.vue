@@ -50,10 +50,10 @@
 import { mapActions } from 'vuex'
 
 // config
-import env from '../config/env'
+import env from '@config/env'
 
 // utils
-import createdTimeCalculator from '../utils/createdTimeCalculator'
+import createdTimeCalculator from '@utils/createdTimeCalculator'
 
 export default {
   props: {
@@ -118,7 +118,7 @@ export default {
     .circleCheckIconBox {
       height: 26px;
       width: 26px;
-      color: $--c-black;
+      color: $colour-g-black;
       cursor: pointer;
     }
 
@@ -126,7 +126,7 @@ export default {
       height: 22px;
       width: 22px;
       border: 2px solid;
-      border-color: $--c-black;
+      border-color: $colour-g-black;
       border-radius: 999px;
       flex-shrink: 0;
       cursor: pointer;
@@ -134,8 +134,7 @@ export default {
   }
 
   .midContent {
-    display: flex;
-    flex-direction: column;
+    @extend %flexColumn;
     flex-grow: 1;
     margin-left: 10px;
     margin-right: 10px;
@@ -146,8 +145,8 @@ export default {
       font-size: 14px;
       overflow: hidden;
       text-overflow: ellipsis;
-      text-decoration: line-through $--c-green;
-      -webkit-text-decoration: line-through $--c-green;
+      text-decoration: line-through $colour-g-green;
+      -webkit-text-decoration: line-through $colour-g-green;
     }
 
     .taskTextNotCompleted {
@@ -171,20 +170,20 @@ export default {
       height: 26px;
       width: 26px;
       margin-right: 10px;
-      color: $--c-blue;
+      color: $colour-g-blue;
     }
 
     .wastebasketIcon {
       height: 26px;
       width: 22px;
-      color: $--c-blue;
+      color: $colour-g-blue;
     }
   }
 
   .dateText {
     margin-right: 10px;
     font-size: 12px;
-    color: $--c-mid-gray;
+    color: $colour-g-mid-gray;
     font-family: SFProDisplay-RegularItalic;
   }
 }

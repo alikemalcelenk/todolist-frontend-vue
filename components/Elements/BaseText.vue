@@ -17,6 +17,6 @@ export default {
 
 <style lang="scss" scoped>
 .text {
-  color: $--c-text;
+  color: $colour-g-text;
 }
 </style>
